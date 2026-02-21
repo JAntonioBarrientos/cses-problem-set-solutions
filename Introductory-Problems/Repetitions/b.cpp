@@ -7,13 +7,14 @@ int main(){
     cin.tie(0);
     string s;
     cin >> s;
-    int l = 0;
-    int ans = 0;
-    for(int r = 0; r <= s.size(); r++){
-        if(r== s.size() or s[r] != s[l]){
-            ans = max(ans, r-l);
-            l = r;
-        }
+    int n = s.size();
+    int curr = 1;
+    int ans = 1;
+    for(int i = 1; i <n;i++){
+        if(s[i] != s[i-1])
+            curr = 0;
+        curr++;
+        ans = max(ans, curr);
     }
     cout << ans << endl;
     return 0;
