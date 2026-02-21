@@ -1,0 +1,41 @@
+# C++ compiled files
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.dSYM/
+*.su
+*.gch
+*.pch
+
+# C++ build directories
+build/
+dist/
+cmake-build-debug/
+cmake-build-release/
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Java build directories
+target/
+build/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
