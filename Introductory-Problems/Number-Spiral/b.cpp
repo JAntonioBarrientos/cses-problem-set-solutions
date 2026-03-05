@@ -1,36 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
- 
+
 void solve(){
- 
     ll x, y;
     cin >> y >> x;
     ll maxi = max(x,y);
     ll ans = maxi*maxi - maxi +1;
-    ll diff = abs(x-y);
-    if(x>=y){
-        if(maxi % 2 == 0){
-            ans -= diff;
-        }
-        else{
-            ans += diff;
-        }
+    ll diff = x-y;
+    if(maxi % 2 == 0){
+        ans -= diff;
     }
     else{
-        if(maxi % 2 == 0){
-            ans += diff;
-        }
-        else{
-            ans -= diff;
-        }
+        ans += diff;
     }
- 
     cout << ans << "\n";
     return;
 }
- 
- 
+
+
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
