@@ -9,5 +9,6 @@ int main(){
     cin >> n;
     
     this was me in surface
+        and this from mac
     return 0;
 }
