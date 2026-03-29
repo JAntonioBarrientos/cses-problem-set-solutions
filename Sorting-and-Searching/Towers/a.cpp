@@ -5,6 +5,17 @@ using ll = long long;
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-   
+    int n;
+    cin >> n;
+    multiset<int> towers;
+    int cube;
+    for(int i = 0; i< n; i++){
+        cin >> cube;
+        auto it = towers.upper_bound(cube);
+        if(it != towers.end())
+            towers.erase(it);
+        towers.insert(cube);
+    }
+    cout << towers.size() << endl;
     return 0;
 }

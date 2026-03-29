@@ -1,32 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-
-int binsearch(int l, int r, const vector<pair<int,int>> &nums, int val){
-    if( l > r)
-        return -1;
-    int m = (l+r)/2;
-    if( nums[m].first == val)
-        return m;
-    else if( val < nums[m].first)
-        return binsearch(l, m-1, nums, val); 
-    return binsearch(m+1, r, nums, val);
-}
-
-
+ 
 pair<int, int> sum_of_two(const vector<pair<int,int>> &nums, int target, int l){
     int n = nums.size();
-    for(int i = l; i< n; i++){
-        int x = target - nums[i].first;
-        int sol = binsearch(i+1, n-1, nums, x);
-        if( sol != -1){
-            return {i, sol};
+    int i = l;
+    int j = n-1;
+    while(i < j){
+        int sum = nums[i].first + nums[j].first;
+        if(sum == target){
+            return {i, j};
+        }
+        if(sum < target){
+            i++;
+        }
+        else{
+            j--;
         }
     }
     return {-1, -1};
 }
-
-
+ 
+ 
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -39,7 +34,7 @@ int main(){
         nums.emplace_back(x, i);
     }
     sort(nums.begin(), nums.end());
-
+ 
     for(int i = 0; i <n; i++){
         int x = target- nums[i].first;
         auto [j, k] = sum_of_two(nums, x, i+1);
