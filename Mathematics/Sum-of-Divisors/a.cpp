@@ -8,19 +8,14 @@ int main(){
     cin.tie(0);
     ll n;
     cin >> n;
-    ll ans = 1+n;
-    int m = n;
-    for(int i = 2; i*i <= m; i++){
-        while(n % i == 0){
-            ans+= i;
-            ans%= MOD;
-            if(n/i != i){
-                ans += n/i;
-                ans %= MOD;
-            }
-            n /= i;
-        }
+    // We sum the ones
+    ll ans = 1*n;
+    for(ll i = 2; i*i <= m; i++){
+        ll div_floor = (n-(i-1)) / i;
     }
+    // We add the last divisor, n
+    ans += n;
+    ans %= MOD;
 
     cout << ans << endl;
    

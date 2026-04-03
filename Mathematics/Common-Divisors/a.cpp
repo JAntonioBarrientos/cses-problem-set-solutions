@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-
+const int N = 1e6;
 int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
-    unordered_map<int, int> nums;
+    unordered_map<int,int> nums;
     int n;
     cin >> n;
     int x;
@@ -15,22 +15,24 @@ int main(){
         nums[x]++;
         max_val = max(max_val, x);
     }
-    int ans = 1;
-    for(auto &[key, value]: nums){
-        if(value > 1){
-            ans = max(ans, value);
+    int max_com_div = 1;
+    int counter;
+    for(int i = 2; i <= N; i++){
+        int curr_div = i;
+        counter = 0;
+        while( curr_div <= N){
+            if(nums.count(curr_div) > 0){
+                counter += nums[curr_div];
+                if(counter > 1){
+                    max_com_div = max(max_com_div, i); 
+                    break;
+                }
+            }
+            curr_div += i;
         }
-        for(int i = value*2; i <= max_val; i+=value){
-            if(nums.count(i) > 0){
-                ans = max(ans, value);
-
-
-
-
-
     }
 
-    cout << ans << endl;
+    cout << max_com_div << endl;
 
    
     return 0;
