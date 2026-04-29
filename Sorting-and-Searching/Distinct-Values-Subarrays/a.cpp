@@ -28,10 +28,9 @@ int main(){
         else{
             //cerr << "Repetido "  << endl;
             //cerr << "L " << l << " R " << r << endl;
-            int len = r-l;
-            cnt += s_n(len);
-            cnt -= s_n(len-1);
+            cnt += s_n(r-l);
             l = window[nums[r]]+1;
+            cnt -= s_n(r-l);
             window[nums[r]] = r;
         }
         if(r == n-1){

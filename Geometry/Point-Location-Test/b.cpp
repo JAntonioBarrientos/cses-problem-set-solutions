@@ -5,6 +5,7 @@ using ftype = long long;
 struct point2d{
     ftype x;
     ftype y;
+
     point2d(): x(0), y(0) {}
     point2d(ftype x, ftype y): x(x), y(y) {}
     point2d& operator+=(const point2d &t){
@@ -27,22 +28,23 @@ struct point2d{
         y /= t;
         return *this;
     }
-    point2d operator+(const point2d& t) const{
+    point2d operator+(const point2d &t) const{
         return point2d(*this) += t;
     }
-    point2d operator-(const point2d& t) const{
+    point2d operator-(const point2d &t) const{
         return point2d(*this) -= t;
     }
     point2d operator*(ftype t) const{
-        return point2d(*this) *= t;
+        return point2d(*this) *=t;
     }
     point2d operator/(ftype t) const{
-        return point2d(*this) /= t;
+        return point2d(*this) /=t;
     }
 };
 point2d operator*(ftype a, point2d b){
-    return b * a;
+    return b*a;
 }
+
 ftype cross_product(const point2d &a, const point2d &b){
     return a.x * b.y - a.y * b.x;
 }
@@ -61,7 +63,7 @@ int main(){
         if(ans < 0){
             cout << "RIGHT\n";
         }
-        else if(ans == 0){
+        else if( ans == 0){
             cout << "TOUCH\n";
         }
         else{
@@ -70,3 +72,4 @@ int main(){
     }
     return 0;
 }
+
