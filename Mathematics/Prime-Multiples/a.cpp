@@ -19,15 +19,21 @@ int main(){
         cnt = 0;
         for(int j = 0; j <k; j++){
             if(b & (1<<j)){
+                if( n / temp < primes[j]){
+                    temp = n+1;
+                    cnt++;
+                    break;
+                }
                 temp *= primes[j];
                 cnt++;
             }
         }
+        ll cur = n/temp;
         if(cnt % 2 == 0){
-            ans -= n/temp;
+            ans -= cur;
         }
         else{
-            ans += n/temp;
+            ans += cur;
         }
     }
     cout << ans << endl;
